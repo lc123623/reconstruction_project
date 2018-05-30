@@ -2,7 +2,7 @@ import numpy as np
 import tensorflow as tf
 import random
 import os
-
+import sys
 
 NUM_CHANNELS = 1
 BATCH_SIZE = 64
@@ -13,10 +13,11 @@ z_dim=200
 
 group_index=0
 
+cur_path=sys.path[0]
 folder_of_dataset=sys.argv[1]
-folder_of_well_trained_model=sys.argv[2]
-folder_to_save_model=sys.argv[3]
-folder_to_save_log=sys.argv[4]
+folder_of_well_trained_model='%s/../net1/model'%cur_path
+folder_to_save_model='%s/model'%cur_path
+folder_to_save_log='%s/log'%cur_path
 
 def read_tfrecords(filename):
 	filename_quene=tf.train.string_input_producer([filename])
